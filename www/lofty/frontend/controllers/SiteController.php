@@ -41,7 +41,7 @@ class SiteController extends Controller
                         'allow' => false,
                         'roles' => ['@'],
                         'denyCallback' => function ($rule, $action) {
-                            return $action->controller->redirect('/positions');
+                            return $action->controller->redirect('/employees');
                         }
                     ],
                     [

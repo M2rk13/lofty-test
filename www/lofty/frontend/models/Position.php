@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "position".
@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Employee[] $employees
  */
-class Position extends \yii\db\ActiveRecord
+class Position extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -59,8 +59,16 @@ class Position extends \yii\db\ActiveRecord
 
     public static function getPositions()
     {
-        return self::find()
-            ->select(['name', 'id'])
-            ->orderBy(['name' => SORT_ASC]);
+        $positions = self::find()
+            ->orderBy(['name' => SORT_ASC])
+            ->all();
+
+        $result = [];
+
+        foreach ($positions as $position) {
+            $result[$position['id']] = $position['name'];
+        }
+
+        return $result;
     }
 }

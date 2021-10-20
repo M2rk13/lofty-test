@@ -92,4 +92,5 @@
       <path value="$PROJECT_DIR$/lofty/vendor/phpunit/php-file-iterator" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
 </project>
