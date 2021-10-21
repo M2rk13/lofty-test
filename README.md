@@ -9,7 +9,7 @@
 `docker exec -it test-php8 bash`
 
 3) При необходимости переустановить фреймворк Yii2
-`composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-application`
+`composer create-project --prefer-dist yiisoft/yii2-app-advanced lofty`
 
 3.1) В случае переустановки фреймворка потребуется внести настройки БД:
 `lofty/common/config/main-local.php:`
