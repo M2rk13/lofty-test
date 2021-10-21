@@ -14,10 +14,6 @@
 3.1) В случае переустановки фреймворка потребуется внести настройки БД:
 `lofty/common/config/main-local.php:`
 
-3.2) В случае переустановки фреймворка возможно понадобится повторно установить модули:
-`yiisoft/yii2-jui`
-`guzzlehttp/guzzle`
-
 ```php
 return [
     'components' => [
@@ -40,12 +36,25 @@ return [
 ];
 ```
 
+3.2) В случае переустановки фреймворка возможно понадобится повторно установить модули:
+`yiisoft/yii2-jui`
+`guzzlehttp/guzzle`
+
 4) При необходимости повторно инициализировать PHP
 `cd lofty`
 `php init`
 
 5) Теперь необходимо поднять миграции командой:
 `php yii migrate/up`
+
+5.1) Если таблица не была создана ранее - перед поднятием миграций необходимо выполнить в phpmyadmin - `http://localhost:8080/`
+команду 
+```sql
+CREATE DATABASE IF NOT EXISTS test
+DEFAULT CHARACTER SET UTF8MB4
+DEFAULT COLLATE utf8mb4_general_ci;
+USE test;
+```
 
 6) Приложение готово к использованию
 
