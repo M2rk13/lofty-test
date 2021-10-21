@@ -96,20 +96,20 @@ use yii\widgets\LinkPager;
                 <ul class="user__search-list">
                     <li class="user__search-item user__search-item--current">
                         <span>Дате найма</span>
-                        <a href="?sort=hiring_date&direction=asc" class="link-regular">
-                            <button>↑</button>
+                        <a href="?sort=hiring_date&direction=asc" class="link-regular" style="border: #1b3f5f 1px solid; margin: 3px;">
+                            ↑
                         </a>
-                        <a href="?sort=hiring_date&direction=desc" class="link-regular">
-                            <button>↓</button>
+                        <a href="?sort=hiring_date&direction=desc" class="link-regular" style="border: #1b3f5f 1px solid; margin: 3px; padding: 2px">
+                            ↓
                         </a>
                     </li>
                     <li class="user__search-item">
                         <span>Возрасту</span>
-                        <a href="?sort=birthday&direction=asc" class="link-regular">
-                            <button>↑</button>
+                        <a href="?sort=birthday&direction=asc" class="link-regular" style="border: #1b3f5f 1px solid; margin: 3px;">
+                            ↑
                         </a>
-                        <a href="?sort=birthday&direction=desc" class="link-regular">
-                            <button>↓</button>
+                        <a href="?sort=birthday&direction=desc" class="link-regular" style="border: #1b3f5f 1px solid; margin: 3px; padding: 2px">
+                            ↓
                         </a>
                     </li>
                 </ul>
