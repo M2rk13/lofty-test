@@ -1,7 +1,5 @@
 <?php
 
-use app\models\Employee;
-use app\models\Position;
 use yii\db\Migration;
 use Faker\Factory;
 
