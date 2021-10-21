@@ -92,6 +92,9 @@
       <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/phpunit/php-text-template" />
       <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/lofty/vendor/psr/http-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

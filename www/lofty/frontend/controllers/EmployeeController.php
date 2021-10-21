@@ -5,7 +5,6 @@ namespace frontend\controllers;
 use app\models\Employee;
 use app\models\Position;
 use frontend\models\EmployeeForm;
-use frontend\models\PositionForm;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\AccessControl;

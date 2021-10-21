@@ -2,18 +2,18 @@
 
 namespace app\models;
 
-use yii\db\ActiveRecord;
+use Yii;
 
 /**
  * This is the model class for table "position".
  *
  * @property int $id
  * @property string $name
- * @property int $salary
+ * @property float $salary
  *
  * @property Employee[] $employees
  */
-class Position extends ActiveRecord
+class Position extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -30,7 +30,7 @@ class Position extends ActiveRecord
     {
         return [
             [['name', 'salary'], 'required'],
-            [['salary'], 'double'],
+            [['salary'], 'number'],
             [['name'], 'string', 'max' => 255],
         ];
     }

@@ -31,9 +31,9 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'hiring_date', 'position_id'], 'required'],
+            [['name', 'birthday', 'hiring_date', 'position_id'], 'required'],
+            [['birthday', 'hiring_date'], 'safe'],
             [['position_id'], 'integer'],
-            [['hiring_date', 'birthday'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['position_id'], 'exist', 'skipOnError' => true, 'targetClass' => Position::className(), 'targetAttribute' => ['position_id' => 'id']],
         ];

@@ -27,7 +27,7 @@ class m211020_070838_add_tables extends Migration
         $this->createTable(self::TABLE_NAME_POSITIONS, [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
-            'salary' => $this->double()->notNull(),
+            'salary' => $this->float()->notNull(),
         ]);
 
         $this->addForeignKey(
