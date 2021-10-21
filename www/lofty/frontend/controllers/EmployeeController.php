@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use app\models\Employee;
 use app\models\Position;
+use frontend\models\EmployeeFilter;
 use frontend\models\EmployeeForm;
 use Yii;
 use yii\data\Pagination;
@@ -52,13 +53,20 @@ class EmployeeController extends Controller
     }
 
     /**
-     * View page with all Positions
+     * View page with all/filtered Employees
      *
      * @return string
      */
     public function actionIndex(): string
     {
-        $employees = Employee::find();
+        $filters = new EmployeeFilter();
+        $filters->load(Yii::$app->request->get());
+
+        if ($sort = Yii::$app->request->get('sort')) {
+            $sortDirection = [$sort => (Yii::$app->request->get('direction') === 'asc') ? SORT_ASC : SORT_DESC];
+        }
+
+        $employees = Employee::getEmployees($filters, $sortDirection ?? null);
 
         $pagination = new Pagination(
             [
@@ -75,13 +83,14 @@ class EmployeeController extends Controller
             [
                 'employees' => $employees->all(),
                 'pagination' => $pagination,
+                'filters' => $filters,
             ]
         );
     }
 
 
     /**
-     * View page for create new Position
+     * View page for create new Employee
      */
     public function actionCreate()
     {
@@ -102,7 +111,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Action delete Position
+     * Action delete Employee
      *
      * @throws NotFoundHttpException
      */
@@ -120,7 +129,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * View page of Position
+     * View page of Employee
      *
      * @throws NotFoundHttpException
      */
@@ -138,7 +147,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * View page for update Position
+     * View page for update Emploee
      *
      * @throws NotFoundHttpException
      */

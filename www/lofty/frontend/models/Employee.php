@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use frontend\models\EmployeeFilter;
 use Yii;
 
 /**
@@ -23,6 +24,26 @@ class Employee extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'employee';
+    }
+
+    /**
+     * Get Employees with (optional)filtration and (optional)sort
+     *
+     * @param EmployeeFilter $filters
+     * @param null $sortDirection
+     * @return \yii\db\ActiveQuery
+     */
+    public static function getEmployees(EmployeeFilter $filters, $sortDirection = null): \yii\db\ActiveQuery
+    {
+        $employees = self::find()
+            ->andFilterWhere(['like', 'name', $filters->search])
+            ->andFilterWhere(['position_id' => $filters->positions]);
+
+        if  ($sortDirection) {
+            $employees->orderBy($sortDirection);
+        }
+
+        return $employees;
     }
 
     /**

@@ -23,6 +23,15 @@ class Position extends \yii\db\ActiveRecord
         return 'position';
     }
 
+    public static function getPositionsForm()
+    {
+        return self::find()
+            ->select(['name', 'id'])
+            ->orderBy(['name' => SORT_ASC])
+            ->indexBy('id')
+            ->column();
+    }
+
     /**
      * {@inheritdoc}
      */
